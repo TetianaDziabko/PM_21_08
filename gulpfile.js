@@ -1,4 +1,4 @@
-const { src, dest, watch, parallel } = require('gulp');
+const { series, src, dest, watch, parallel } = require('gulp');
 const gulp = require("gulp");
 const sass = require("gulp-sass")(require("sass"));
 const cssnano = require('gulp-cssnano');
@@ -9,59 +9,57 @@ const uglify = require("gulp-uglify");
 const rename = require("gulp-rename");
 const browserSync = require('browser-sync').create();
 
-gulp.task('html', () => {
-    return gulp.src("app/*.html")
-    .pipe (gulp.dest("dist"))
-    .pipe(browserSync.stream());
-});
+const html_task = () => src('app/*.html')
+        .pipe (gulp.dest('dist'))
+        .pipe(browserSync.stream());
 
-gulp.task('sass', () => {
-    return gulp.src("app/sass/*.sass")
-    .pipe(concat('styles.sass'))
-    .pipe(sass())
-    .pipe(autoprefixer({
-        browsers: ['last 2 versions'],
-        cascade: false
-    }))
-    .pipe(cssnano())
-    .pipe(rename({suffix:'.min'}))
-    .pipe(gulp.dest("dist/css"))
-    .pipe(browserSync.stream());
-});
 
-gulp.task('scripts', () => {
-    return gulp.src("app/js/*.js")
-    .pipe(concat('scripts.js'))
-    .pipe(uglify())
-    .pipe(rename({suffix:'.min'}))
-    .pipe(gulp.dest("dist/js"))
-    .pipe(browserSync.stream());
-});
+const scsss_task = () => src("app/sass/*.sсss")
+        .pipe(concat('styles.sсss'))
+        .pipe(sass())
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
+        .pipe(cssnano())
+        .pipe(rename({suffix:'.min'}))
+        .pipe(dest("dist/css"))
+        .pipe(browserSync.stream());
 
-gulp.task('img', () => {
-    return gulp.src("app/img/*.+(jpg|jpeg|png|gif)")
+
+const scripts_task = () => src("app/js/*.js")
+        .pipe(concat('scripts.js'))
+        .pipe(uglify())
+        .pipe(rename({suffix:'.min'}))
+        .pipe(gulp.dest("dist/js"))
+        .pipe(browserSync.stream());
+
+
+const img_task = () => src("app/img/*.+(jpg|jpeg|png|gif)")
     .pipe(imagemin ({
         progressive: true,
         svgoPlugins: [{removeViewBox: false}],
         interlaced: true
     }))
-    .pipe(gulp.dest("dist/img"))
+    .pipe(dest("dist/img"))
     .pipe(browserSync.stream());
-})
 
-gulp.task('watch', () => {
+
+const watch_task = () => {
+
     browserSync.init({
         server: {
             baseDir: "./dist" // Вказуйте шлях до папки з вашими статичними файлами
         }
     });
-    gulp.watch("app/*html", gulp.parallel('html'));
-    gulp.watch("app/sass/*.sass", gulp.parallel('sass'));
-    gulp.watch("app/js/*.js", gulp.parallel('scripts'));
-    gulp.watch("app/img/*.+(jpg|jpeg|png|gif)", gulp.parallel('scripts'));
-});
 
-gulp.task('default', gulp.series('html', 'sass', 'scripts', 'img', 'watch'));
+    watch('app/*html', parallel(html_task));
+    watch("app/sass/*.sass", parallel(scsss_task));
+    watch("app/js/*.js", parallel(scripts_task));
+    watch("app/img/*.+(jpg|jpeg|png|gif)", parallel(scripts_task));
+}
+
+exports.default = series(html_task, scsss_task, scripts_task, img_task, watch_task);
 
 /*function defaultTask(cb) {
     cb();
