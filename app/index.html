@@ -1,7 +1,22 @@
-<html>
-    <head></head>
-    <body>
-        <p>new test</p>
-        <span>test</span>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('html/head.html')
+</head>
+<body>
+    <div class="main-container">
+        @@include('html/header.html')
+        <div class="d-flex">
+            @@include('html/sidebar.html')
+            @@include('html/content.html')
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.highcharts.com/maps/highmaps.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/data.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/offline-exporting.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/accessibility.js"></script>
+    <script src="js/scripts.min.js"></script>
+</body>
 </html>

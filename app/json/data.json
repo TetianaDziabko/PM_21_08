@@ -1,0 +1,66 @@
+{
+  "doughnutData": [
+      {"label": "Research", "value": 30},
+      {"label": "Information", "value": 17},
+      {"label": "Product Desing", "value": 13},
+      {"label": "Pacaging", "value": 8}
+    ],
+
+    "lineRevenueData": [
+      {"label": "Jan", "value": 2000},
+      {"label": "Feb", "value": 3000},
+      {"label": "Mar", "value": 5000},
+      {"label": "Apr", "value": 10000},
+      {"label": "May", "value": 6000},
+      {"label": "Jun", "value": 4000},
+      {"label": "Jul", "value": 3000},
+      {"label": "Aug", "value": 3600},
+      {"label": "Sep", "value": 10000},
+      {"label": "Oct", "value": 10000},
+      {"label": "Nov", "value": 3000},
+      {"label": "Dec", "value": 1000}
+    ],
+    "lineOrderData": [
+      {"label": "Jan", "value": 2000},
+      {"label": "Feb", "value": 3200},
+      {"label": "Mar", "value": 7000},
+      {"label": "Apr", "value": 15500},
+      {"label": "May", "value": 6000},
+      {"label": "Jun", "value": 4000},
+      {"label": "Jul", "value": 4400},
+      {"label": "Aug", "value": 6000},
+      {"label": "Sep", "value": 10000},
+      {"label": "Oct", "value": 9000},
+      {"label": "Nov", "value": 5000},
+      {"label": "Dec", "value": 3000}
+    ],
+    "lineTaxData": [
+      {"label": "Jan", "value": 3000},
+      {"label": "Feb", "value": 5000},
+      {"label": "Mar", "value": 10000},
+      {"label": "Apr", "value": 15000},
+      {"label": "May", "value": 10000},
+      {"label": "Jun", "value": 2000},
+      {"label": "Jul", "value": 2000},
+      {"label": "Aug", "value": 2000},
+      {"label": "Sep", "value": 2000},
+      {"label": "Oct", "value": 15000},
+      {"label": "Nov", "value": 2000},
+      {"label": "Dec", "value": 5000}
+    ],
+    "lineShipmentData": [
+      {"label": "Jan", "value": 2500},
+      {"label": "Feb", "value": 3000},
+      {"label": "Mar", "value": 5000},
+      {"label": "Apr", "value": 10000},
+      {"label": "May", "value": 10000},
+      {"label": "Jun", "value": 6000},
+      {"label": "Jul", "value": 3000},
+      {"label": "Aug", "value": 3000},
+      {"label": "Sep", "value": 10000},
+      {"label": "Oct", "value": 13000},
+      {"label": "Nov", "value": 3000},
+      {"label": "Dec", "value": 1000}
+    ]
+
+}
