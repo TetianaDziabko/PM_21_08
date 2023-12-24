@@ -1,18 +1,3 @@
-// async function getData(dataType) {
-//     try {
-//       const response = await fetch('./data.json');
-//       const jsonData = await response.json();
-  
-//       if (jsonData.lineData && Array.isArray(jsonData.lineData)) {
-//         return jsonData.lineData;
-//       } else {
-//         throw new Error('Invalid or missing lineData in the data file.');
-//       }
-//     } catch (error) {
-//       console.error('Error fetching data:', error);
-//       return null;
-//     }
-// }
 async function getData1( dataType) {
     const response = await fetch('/data.json');
     const jsonData = await response.json();
@@ -31,9 +16,7 @@ async function getData1( dataType) {
     try {
       const lineData = await getData1('line');
       console.log(lineData)
-    //   const labelRevenue = lineData.map(item => item.label);
-    //   const labelOrder = lineData.map(item => item.label);
-    //   const labelTax = lineTaxData.map(item => item.label);
+   
       const labelShipment = lineData.lineShipmentData.map(item => item.label);
       const valuesRevenue = lineData.lineRevenueData.map(item => item.value);
       const valuesOrder = lineData.lineOrderData.map(item => item.value);
@@ -41,7 +24,7 @@ async function getData1( dataType) {
       const valuesShipment = lineData.lineShipmentData.map(item => item.value);
 
         console.log(labelShipment, valuesShipment)
-    //   const labels = lineData.map(item => item.labels);
+    
       const data = {
         labels: labelShipment,
      datasets: [
